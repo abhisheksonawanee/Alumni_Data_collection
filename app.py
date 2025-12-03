@@ -30,18 +30,18 @@ st.markdown(
         }
         
         body {
-            background: #000000;
+            background: #001F3F;
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
         }
         .main {
-            background: #000000;
+            background: #001F3F;
             padding: 0;
         }
         /* Pacific Header */
         .pacific-header {
-            background: #000000;
+            background: #001F3F;
             color: white;
             padding: 12px 0;
             width: 100%;
@@ -49,7 +49,7 @@ st.markdown(
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            border-bottom: 2px solid #ff6600;
+            border-bottom: 2px solid #FF6600;
         }
         .pacific-header-content {
             max-width: 1200px;
@@ -81,7 +81,7 @@ st.markdown(
             max-width: 980px;
             margin: 0 auto;
             padding: 20px;
-            background: #000000;
+            background: #001F3F;
         }
         .card {
             background: #ffffff;
@@ -90,10 +90,10 @@ st.markdown(
             margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
             color: #000000;
-            border: 2px solid #ff6600;
+            border: 2px solid #FF6600;
         }
         .card h2, .card h3 {
-            color: #000000;
+            color: #FF6600;
             font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
             font-weight: 700;
             margin-top: 0;
@@ -105,10 +105,10 @@ st.markdown(
             font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
             font-weight: 700;
             font-size: 28px;
-            color: #000000;
+            color: #FF6600;
         }
         .subtitle {
-            color: #333333;
+            color: #000000;
             font-size: 14px;
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.5;
@@ -124,16 +124,16 @@ st.markdown(
             padding: 8px 16px;
             border-radius: 4px;
             font-size: 13px;
-            border: 1px solid #ff6600;
-            color: #ff6600;
+            border: 1px solid #001F3F;
+            color: #001F3F;
             background: #ffffff;
             font-family: Arial, Helvetica, sans-serif;
             font-weight: 400;
         }
         .step-chip.active {
-            border-color: #ff6600;
+            border-color: #FF6600;
             color: #ffffff;
-            background: #ff6600;
+            background: #FF6600;
             font-weight: 500;
         }
         .section-title {
@@ -141,13 +141,13 @@ st.markdown(
             font-weight: 600;
             text-transform: none;
             letter-spacing: 0;
-            color: #ff6600;
+            color: #FF6600;
             margin-bottom: 10px;
             font-family: Arial, Helvetica, sans-serif;
         }
         .hint {
             font-size: 13px;
-            color: #666666;
+            color: #000000;
             margin-bottom: 15px;
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.5;
@@ -158,7 +158,7 @@ st.markdown(
             right: 20px;
             z-index: 999;
             background: #ffffff;
-            border: 2px solid #ff6600;
+            border: 2px solid #FF6600;
             border-radius: 8px;
             padding: 12px 16px;
             box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
@@ -172,7 +172,7 @@ st.markdown(
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #ff6600;
+            border: 2px solid #FF6600;
         }
         .creator-info {
             display: flex;
@@ -180,30 +180,30 @@ st.markdown(
         }
         .creator-label {
             font-size: 11px;
-            color: #666666;
+            color: #000000;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             font-family: Arial, Helvetica, sans-serif;
         }
         .creator-name {
             font-size: 13px;
-            color: #ff6600;
+            color: #FF6600;
             font-weight: 600;
             margin-top: 2px;
             font-family: Arial, Helvetica, sans-serif;
         }
-        /* Streamlit form elements - Black, Orange, White theme */
+        /* Streamlit form elements - Orange, Navy, Black, White theme */
         .stTextInput > div > div > input,
         .stSelectbox > div > div > select {
             background-color: #ffffff;
             color: #000000;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
-            border: 1px solid #ff6600;
+            border: 1px solid #FF6600;
             border-radius: 4px;
         }
         .stButton > button {
-            background-color: #ff6600;
+            background-color: #FF6600;
             color: #ffffff;
             border: none;
             border-radius: 4px;
@@ -213,7 +213,7 @@ st.markdown(
             padding: 10px 24px;
         }
         .stButton > button:hover {
-            background-color: #ff8533;
+            background-color: #FF8533;
         }
         label {
             color: #000000;
