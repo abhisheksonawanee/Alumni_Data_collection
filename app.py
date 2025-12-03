@@ -219,6 +219,22 @@ st.markdown(
 
     /* Inside cards, override to black (already handled by .card * above) */
 
+    /* Text on navy background should be white */
+    .center-container > *:not(.card),
+    .center-container > *:not(.card) *,
+    .center-container p,
+    .center-container span,
+    .center-container div:not(.card) p,
+    .center-container div:not(.card) span {
+        color: #FFFFFF !important;
+    }
+
+    /* Inside cards stay black (preserve this override) */
+    .card, 
+    .card * {
+        color: #000000 !important;
+    }
+
 </style>
     """,
     unsafe_allow_html=True,
