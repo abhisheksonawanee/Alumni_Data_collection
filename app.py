@@ -265,6 +265,42 @@ st.markdown(
     [data-testid="stSidebar"] {
         background-color: #001F3F !important;
     }
+
+    /* Force all text on navy blue to be white */
+    .center-container, 
+    .center-container *:not(.card):not(.card *),
+    .pacific-header, 
+    .pacific-header *, 
+    [data-testid="stAppViewContainer"],
+    [data-testid="stAppViewContainer"] *:not(.card):not(.card *) {
+        color: #FFFFFF !important;
+    }
+
+    /* Override Streamlit specific elements */
+    .stRadio > label,
+    .stCheckbox > label,
+    .stTextInput > label,
+    .stSelectbox > label,
+    .stNumberInput > label,
+    .stDateInput > label,
+    .stMultiSelect > label,
+    .stMarkdown,
+    label,
+    p,
+    h1, h2, h3, h4, h5, h6,
+    span {
+        color: #FFFFFF !important;
+    }
+
+    /* KEEP card text black */
+    .card, 
+    .card *, 
+    .card p, 
+    .card label, 
+    .card span, 
+    .card h1, .card h2, .card h3, .card h4 {
+        color: #000000 !important;
+    }
 </style>
     """,
     unsafe_allow_html=True,
