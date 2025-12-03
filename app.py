@@ -18,6 +18,40 @@ st.set_page_config(page_title="ESB Alumni & Student Journey", layout="wide")
 st.markdown(
     """
     <style>
+    /* ---------- BASE COLORS ---------- */
+    :root {
+        --navy:   #001F3F;
+        --orange: #FF6600;
+        --white:  #FFFFFF;
+        --black:  #000000;
+    }
+
+    /* Global background + default text */
+    body {
+        background-color: var(--navy) !important;
+        color: var(--white) !important;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .stApp {
+        background-color: var(--navy) !important;
+        color: var(--white) !important;
+    }
+    [data-testid="stAppViewContainer"] {
+        background-color: var(--navy) !important;
+        color: var(--white) !important;
+    }
+    [data-testid="stSidebar"] {
+        background-color: var(--navy) !important;
+        color: var(--white) !important;
+    }
+
+    .main {
+        background: var(--navy);
+        padding: 0;
+    }
+
     /* Bely Display Font */
     @font-face {
         font-family: 'belydisplayw00regular';
@@ -29,36 +63,17 @@ st.markdown(
         font-style: normal;
     }
 
-    /* GLOBAL COLORS
-       Navy Blue: #001F3F
-       Orange:    #FF6600
-       Black:     #000000
-       White:     #FFFFFF
-    */
-
-    body {
-        background: #001F3F;
-        color: #FFFFFF;              /* default text on navy */
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    .main {
-        background: #001F3F;
-        padding: 0;
-    }
-
-    /* Pacific Header */
+    /* ---------- HEADER ---------- */
     .pacific-header {
-        background: #001F3F;
-        color: #FFFFFF;
+        background: var(--navy);
+        color: var(--white);
         padding: 12px 0;
         width: 100%;
         position: sticky;
         top: 0;
         z-index: 1000;
         box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        border-bottom: 2px solid #FF6600;
+        border-bottom: 2px solid var(--orange);
     }
     .pacific-header-content {
         max-width: 1200px;
@@ -72,7 +87,7 @@ st.markdown(
         font-size: 40px;
         font-weight: 400;
         letter-spacing: 0.15em;
-        color: #FFFFFF;   /* white text on navy */
+        color: var(--white);
         font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
         text-transform: uppercase;
         line-height: 1.5;
@@ -83,26 +98,31 @@ st.markdown(
         margin: 5px 15px 5px 0;
     }
 
-    /* Center content area still on navy */
+    /* ---------- LAYOUT ---------- */
     .center-container {
         max-width: 980px;
         margin: 0 auto;
         padding: 20px;
-        background: #001F3F;
+        background: var(--navy);
     }
 
-    /* Cards stay white with dark text */
+    /* ---------- CARDS (WHITE, BLACK TEXT) ---------- */
     .card {
-        background: #FFFFFF;
+        background: var(--white);
         border-radius: 8px;
         padding: 30px;
         margin-bottom: 20px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        color: #000000;
-        border: 2px solid #FF6600;
+        border: 2px solid var(--orange);
     }
-    .card h2, .card h3 {
-        color: #FF6600;  /* orange headings on white card */
+    .card * {
+        color: var(--black) !important;
+    }
+    .card h1,
+    .card h2,
+    .card h3,
+    .card h4 {
+        color: var(--orange) !important;
         font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
         font-weight: 700;
         margin-top: 0;
@@ -111,21 +131,17 @@ st.markdown(
         line-height: 1.3;
     }
     .card h2.survey-title {
-        font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
-        font-weight: 700;
         font-size: 28px;
-        color: #FF6600;
     }
 
     .subtitle {
-        color: #000000;
         font-size: 14px;
         font-family: Arial, Helvetica, sans-serif;
         line-height: 1.5;
         margin-bottom: 15px;
     }
 
-    /* Step chips row sits on navy background; chips themselves are white/colored */
+    /* ---------- STEP CHIPS ---------- */
     .step-chip-row {
         display: flex;
         gap: 0.5rem;
@@ -136,16 +152,16 @@ st.markdown(
         padding: 8px 16px;
         border-radius: 4px;
         font-size: 13px;
-        border: 1px solid #001F3F;   /* navy border */
-        color: #001F3F;              /* navy text */
-        background: #FFFFFF;         /* white chip when inactive */
+        border: 1px solid var(--navy);
+        color: var(--navy);
+        background: var(--white);
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 400;
     }
     .step-chip.active {
-        border-color: #FF6600;
-        color: #FFFFFF;              /* white text on orange */
-        background: #FF6600;
+        border-color: var(--orange);
+        color: var(--white);
+        background: var(--orange);
         font-weight: 500;
     }
 
@@ -154,7 +170,7 @@ st.markdown(
         font-weight: 600;
         text-transform: none;
         letter-spacing: 0;
-        color: #FF6600;
+        color: var(--orange);
         margin-bottom: 10px;
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -166,62 +182,20 @@ st.markdown(
         line-height: 1.5;
     }
 
-    /* Creator badge stays white/orange so it pops on navy */
-    .creator-badge {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 999;
-        background: #FFFFFF;
-        border: 2px solid #FF6600;
-        border-radius: 8px;
-        padding: 12px 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        max-width: 250px;
-    }
-    .creator-photo {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 2px solid #FF6600;
-    }
-    .creator-info {
-        display: flex;
-        flex-direction: column;
-    }
-    .creator-label {
-        font-size: 11px;
-        color: #666666;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .creator-name {
-        font-size: 13px;
-        color: #FF6600;
-        font-weight: 600;
-        margin-top: 2px;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* Streamlit form elements */
+    /* ---------- FORM ELEMENTS ---------- */
     .stTextInput > div > div > input,
     .stSelectbox > div > div > select {
-        background-color: #FFFFFF;
-        color: #000000;
+        background-color: var(--white);
+        color: var(--black);
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
-        border: 1px solid #FF6600;
+        border: 1px solid var(--orange);
         border-radius: 4px;
     }
 
     .stButton > button {
-        background-color: #FF6600;
-        color: #FFFFFF;
+        background-color: var(--orange);
+        color: var(--white);
         border: none;
         border-radius: 4px;
         font-family: Arial, Helvetica, sans-serif;
@@ -233,69 +207,18 @@ st.markdown(
         background-color: #FF8533;
     }
 
-    label {
-        color: #000000;
-        font-weight: 500;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-    }
+    /* Text defaults: ON NAVY = WHITE */
+    label,
+    p,
+    span,
+    .stMarkdown,
     .stRadio > label,
     .stCheckbox > label {
-        color: #000000;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
+        color: var(--white);
     }
 
-    body {
-        background-color: #001F3F !important;
-    }
+    /* Inside cards, override to black (already handled by .card * above) */
 
-    .stApp {
-        background-color: #001F3F !important;
-    }
-
-    [data-testid="stAppViewContainer"] {
-        background-color: #001F3F !important;
-    }
-
-    [data-testid="stAppViewContainer"] > .main {
-        background-color: #001F3F !important;
-    }
-
-    [data-testid="stSidebar"] {
-        background-color: #001F3F !important;
-    }
-
-    /* ---------------------------
-       1. TEXT ON NAVY BLUE = WHITE
-       --------------------------- */
-    .center-container,
-    .center-container * {
-        color: #FFFFFF !important;
-    }
-
-    [data-testid="stAppViewContainer"],
-    [data-testid="stAppViewContainer"] * {
-        color: #FFFFFF !important;
-    }
-
-    .pacific-header,
-    .pacific-header * {
-        color: #FFFFFF !important;
-    }
-
-    /* ---------------------------
-       2. CARD TEXT = BLACK
-       --------------------------- */
-    .card,
-    .card * {
-        color: #000000 !important;
-    }
-
-    /* Keep card headers orange */
-    .card h1, .card h2, .card h3, .card h4 {
-        color: #FF6600 !important;
-    }
 </style>
     """,
     unsafe_allow_html=True,
