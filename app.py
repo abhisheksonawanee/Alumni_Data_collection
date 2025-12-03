@@ -245,6 +245,26 @@ st.markdown(
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
     }
+
+    body {
+        background-color: #001F3F !important;
+    }
+
+    .stApp {
+        background-color: #001F3F !important;
+    }
+
+    [data-testid="stAppViewContainer"] {
+        background-color: #001F3F !important;
+    }
+
+    [data-testid="stAppViewContainer"] > .main {
+        background-color: #001F3F !important;
+    }
+
+    [data-testid="stSidebar"] {
+        background-color: #001F3F !important;
+    }
 </style>
     """,
     unsafe_allow_html=True,
