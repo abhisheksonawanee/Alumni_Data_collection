@@ -18,216 +18,234 @@ st.set_page_config(page_title="ESB Alumni & Student Journey", layout="wide")
 st.markdown(
     """
     <style>
-        /* Bely Display Font */
-        @font-face {
-            font-family: 'belydisplayw00regular';
-            src: url('belydisplayw00regulare.woff2') format('woff2'),
-                 url('belydisplayw00regulare.woff') format('woff'),
-                 url('belydisplayw00regulare.ttf') format('truetype'),
-                 url('belydisplayw00regulare.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        
-        body {
-            background: #001F3F;
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .main {
-            background: #001F3F;
-            padding: 0;
-        }
-        /* Pacific Header */
-        .pacific-header {
-            background: #001F3F;
-            color: white;
-            padding: 12px 0;
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            border-bottom: 2px solid #FF6600;
-        }
-        .pacific-header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-        }
-        .pacific-logo {
-            font-size: 40px;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            color: #ffffff;
-            font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
-            text-transform: uppercase;
-            line-height: 1.5;
-        }
-        .pacific-logo-img {
-            max-height: 60px;
-            width: auto;
-            margin: 5px 15px 5px 0;
-        }
-        .pacific-header-content {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .center-container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #001F3F;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.2);
-            color: #000000;
-            border: 2px solid #FF6600;
-        }
-        .card h2, .card h3 {
-            color: #FF6600;
-            font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 28px;
-            line-height: 1.3;
-        }
-        .card h2.survey-title {
-            font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
-            font-weight: 700;
-            font-size: 28px;
-            color: #FF6600;
-        }
-        .subtitle {
-            color: #000000;
-            font-size: 14px;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        .step-chip-row {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-            flex-wrap: wrap;
-        }
-        .step-chip {
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 13px;
-            border: 1px solid #001F3F;
-            color: #001F3F;
-            background: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: 400;
-        }
-        .step-chip.active {
-            border-color: #FF6600;
-            color: #ffffff;
-            background: #FF6600;
-            font-weight: 500;
-        }
-        .section-title {
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: none;
-            letter-spacing: 0;
-            color: #FF6600;
-            margin-bottom: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .hint {
-            font-size: 13px;
-            color: #000000;
-            margin-bottom: 15px;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.5;
-        }
-        .creator-badge {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-            background: #ffffff;
-            border: 2px solid #FF6600;
-            border-radius: 8px;
-            padding: 12px 16px;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            max-width: 250px;
-        }
-        .creator-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #FF6600;
-        }
-        .creator-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .creator-label {
-            font-size: 11px;
-            color: #000000;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .creator-name {
-            font-size: 13px;
-            color: #FF6600;
-            font-weight: 600;
-            margin-top: 2px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        /* Streamlit form elements - Orange, Navy, Black, White theme */
-        .stTextInput > div > div > input,
-        .stSelectbox > div > div > select {
-            background-color: #ffffff;
-            color: #000000;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            border: 1px solid #FF6600;
-            border-radius: 4px;
-        }
-        .stButton > button {
-            background-color: #FF6600;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 10px 24px;
-        }
-        .stButton > button:hover {
-            background-color: #FF8533;
-        }
-        label {
-            color: #000000;
-            font-weight: 500;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-        }
-        .stRadio > label,
-        .stCheckbox > label {
-            color: #000000;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-        }
-    </style>
+    /* Bely Display Font */
+    @font-face {
+        font-family: 'belydisplayw00regular';
+        src: url('belydisplayw00regulare.woff2') format('woff2'),
+             url('belydisplayw00regulare.woff') format('woff'),
+             url('belydisplayw00regulare.ttf') format('truetype'),
+             url('belydisplayw00regulare.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* GLOBAL COLORS
+       Navy Blue: #001F3F
+       Orange:    #FF6600
+       Black:     #000000
+       White:     #FFFFFF
+    */
+
+    body {
+        background: #001F3F;
+        color: #FFFFFF;              /* default text on navy */
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .main {
+        background: #001F3F;
+        padding: 0;
+    }
+
+    /* Pacific Header */
+    .pacific-header {
+        background: #001F3F;
+        color: #FFFFFF;
+        padding: 12px 0;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        border-bottom: 2px solid #FF6600;
+    }
+    .pacific-header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .pacific-logo {
+        font-size: 40px;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        color: #FFFFFF;   /* white text on navy */
+        font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        line-height: 1.5;
+    }
+    .pacific-logo-img {
+        max-height: 60px;
+        width: auto;
+        margin: 5px 15px 5px 0;
+    }
+
+    /* Center content area still on navy */
+    .center-container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #001F3F;
+    }
+
+    /* Cards stay white with dark text */
+    .card {
+        background: #FFFFFF;
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        color: #000000;
+        border: 2px solid #FF6600;
+    }
+    .card h2, .card h3 {
+        color: #FF6600;  /* orange headings on white card */
+        font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 28px;
+        line-height: 1.3;
+    }
+    .card h2.survey-title {
+        font-family: 'belydisplayw00regular', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 28px;
+        color: #FF6600;
+    }
+
+    .subtitle {
+        color: #000000;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    /* Step chips row sits on navy background; chips themselves are white/colored */
+    .step-chip-row {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        flex-wrap: wrap;
+    }
+    .step-chip {
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 13px;
+        border: 1px solid #001F3F;   /* navy border */
+        color: #001F3F;              /* navy text */
+        background: #FFFFFF;         /* white chip when inactive */
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+    }
+    .step-chip.active {
+        border-color: #FF6600;
+        color: #FFFFFF;              /* white text on orange */
+        background: #FF6600;
+        font-weight: 500;
+    }
+
+    .section-title {
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: none;
+        letter-spacing: 0;
+        color: #FF6600;
+        margin-bottom: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .hint {
+        font-size: 13px;
+        color: #333333;
+        margin-bottom: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+    }
+
+    /* Creator badge stays white/orange so it pops on navy */
+    .creator-badge {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+        background: #FFFFFF;
+        border: 2px solid #FF6600;
+        border-radius: 8px;
+        padding: 12px 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        max-width: 250px;
+    }
+    .creator-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #FF6600;
+    }
+    .creator-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .creator-label {
+        font-size: 11px;
+        color: #666666;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .creator-name {
+        font-size: 13px;
+        color: #FF6600;
+        font-weight: 600;
+        margin-top: 2px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Streamlit form elements */
+    .stTextInput > div > div > input,
+    .stSelectbox > div > div > select {
+        background-color: #FFFFFF;
+        color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        border: 1px solid #FF6600;
+        border-radius: 4px;
+    }
+
+    .stButton > button {
+        background-color: #FF6600;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 4px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 24px;
+    }
+    .stButton > button:hover {
+        background-color: #FF8533;
+    }
+
+    label {
+        color: #000000;
+        font-weight: 500;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+    .stRadio > label,
+    .stCheckbox > label {
+        color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+</style>
     """,
     unsafe_allow_html=True,
 )
